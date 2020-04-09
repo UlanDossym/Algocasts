@@ -11,21 +11,21 @@
 function anagrams(stringA, stringB) {
   const stringArrA = stringA.replace(/[^\w]/g, '').toLowerCase();
   const stringArrB = stringB.replace(/[^\w]/g, '').toLowerCase();
-  let charCounterMap = {};
-  let isAnagram = true;
+  let charCounterMapA = {};
+  let charCounterMapB = {};
   for (let char of stringArrA) {
-    charCounterMap[char] = charCounterMap[char] + 1 || 1;
+    charCounterMapA[char] = charCounterMapA[char] + 1 || 1;
   }
   for (let char of stringArrB) {
-    charCounterMap[char] = charCounterMap[char] + 1 || 1;
+    charCounterMapB[char] = charCounterMapB[char] + 1 || 1;
   }
-  for (let char in charCounterMap) {
-    if (charCounterMap[char] % 2 != 0) {
-      isAnagram = false;
-      break;
+  if (Object.keys(charCounterMapA).length != Object.keys(charCounterMapB).length) return false;
+  for (let char in charCounterMapA) {
+    if (charCounterMapA[char] != charCounterMapB[char]) {
+      return false;
     }
   }
-  return isAnagram;
+  return true;
 }
 
 module.exports = anagrams;
