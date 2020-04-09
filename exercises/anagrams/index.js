@@ -9,8 +9,8 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  const stringArrA = stringA.replace(/[^\w]/g, '').toLowerCase().split('');
-  const stringArrB = stringB.replace(/[^\w]/g, '').toLowerCase().split('');
+  const stringArrA = stringA.replace(/[^\w]/g, '').toLowerCase();
+  const stringArrB = stringB.replace(/[^\w]/g, '').toLowerCase();
   let charCounterMap = {};
   let isAnagram = true;
   for (let char of stringArrA) {
