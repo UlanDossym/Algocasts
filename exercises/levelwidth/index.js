@@ -17,9 +17,9 @@ function levelWidth(root) {
   let queue = ['stopper', root];
   while (queue.length > 1) {
     let current = queue.pop();
-    if (current === 'stopper') {
+    if (current == 'stopper') {
       counters.push(0);
-      queue.unshift('stopper');
+      queue.unshift(current);
     } else {
       queue.unshift(...current.children);
       counters[counters.length - 1]++;
